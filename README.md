@@ -53,8 +53,15 @@ This README provides an overview of the Minimum Viable Product (MVP) of a server
 
 ## Deploying Infrastructure:
 
+- Clone the repo in local:
+
+```bash
+git clone git@github.com:sandraber/serverless-app.git
+```
+
 - Use Terraform code in `infra` folder to provision the necessary resources (API Gateway, Lambda function, S3 bucket), changing the backend and the profile AWS in these files:
-`backend.tf`
+
+ `backend.tf`
 ```terraform
 
 terraform {
@@ -66,7 +73,7 @@ terraform {
   }
 }
 ```
-`providers.tf`
+ `providers.tf`
 ```terraform
 provider "aws" {
   region              = var.region
@@ -81,7 +88,7 @@ provider "aws" {
   }
 }
 ```
-`terraform.tfvars`
+ `terraform.tfvars`
 ```terraform
 project_name = "serverless-app"
 region       = "eu-west-1" ## YOUR REGION.
@@ -91,7 +98,8 @@ region       = "eu-west-1" ## YOUR REGION.
 ## Testing:
 
 - Test the API endpoints using tools like curl or Postman.
-Example:
+
+ Example:
 ```bash
 curl -X POST \
   -H "Content-Type: application/json" \
