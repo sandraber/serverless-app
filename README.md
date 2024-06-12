@@ -112,7 +112,17 @@ curl -X POST \
   https://r79ka8n1wl.execute-api.eu-west-1.amazonaws.com/prod/process
 ```
 - Verify that the Lambda function processes data correctly and stores the result in the S3 bucket, name bucket:serverless-app-lambda.
-- Test the pre-signed URLs to ensure secure access to the stored files.
+- Test the pre-signed URLs to ensure secure access to the stored files. The URL can be something like:
+
+```bash
+https://serverless-app-lambda.s3.amazonaws.com/top_words.json?AWSAccessKeyId=ASIA47CRYLUTTJZRIS3N&Signature=hCGDR08L3evcyn7fQfRJr3QlDsI%3D&x-amz-security-token=IQoJb3JpZ2luX2VjEMf%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaCWV1LXdlc3QtMSJGMEQCIG%2FwRwMYmTqloh%2BI3MGPz3bejkmhGols%2BHynhsacesPoAiBq%2BtN7SbATh%2B4g42JcbHyMvrSsoJgUgP6UhPYuSK%2BA6irsAghgEAAaDDg5MTM3NzE3OTk0MyIMMFXHSBg0zYxO1EvUKskCQ8jNy00aJAxmdmwOWIcLDa80SF5x5xZAU1q%2FeCsim9u49yv8vqSyJd5ev9Nb3ihKMQdb1iOJJvqAyK71ldUnfVBcCj%2F2N3UzyNlVT6x61l7G1xxrTB7agi1dASnrhYQtJ%2FsBo%2BIeWMlVXmycunlV%2BNRucrWt%2FCvHJyENzwULxs1K%2BWyF2m4AmhuWNbY34FLpLN2c6BZY0Xrc0%2B3jS3SRcMUIKUdqLt%2F%2Fns2FarV3kb5rFygYApWkgStr26t2nfqsfCXvDvG%2B7sF63zrrEUyNfzOmVGU8vedDX9kmF8ZlRHN9SIMEt1kCQDiElaCioVArBfxTZYJnajyl9CCd5U6661sOi0a9EUSnVpaABJ1GMQmG28HwYbtZLm0HiOD%2Fkbi5RRMQrvYzl%2Fl9aJGnUXigA4aUOpHHrBaD%2Fv3suzXGYey8%2FCJJCOan6GIw0cehswY6nwEcT8Y0YggQqFRkQjnwN9Po76jGvok7WrRbSxJhxUFzfwp4RKVhucBxETXxnS3KbDW5%2BW7ZJJXi03l1dd8ex0oGgdU7N%2F9DDR4IonVfiyJCs0dPaOlRlmRpxNpLQ1U94oPH73R21tLMKZPIxTBzDRB69MHwy7O5robrffjk7bF5GMvubpODQ4DVl213RedQ48YPClnm3r4a0Pjl%2BwEVnQ0%3D&Expires=1718121146
+```
+
+And the downloaded file:
+
+```bash
+{"ma": 6, "mo": 6, "mi": 2, "me": 2}
+```
 
 # Lambda Function Details
 The Python Lambda function processes incoming text data, extracts the top 10 most frequent words, saves the result in a JSON file in an S3 bucket, and generates a pre-signed URL to access the stored file. For detailed information on the function code and workflow, refer to the provided Python code.
